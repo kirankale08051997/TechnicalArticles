@@ -1,0 +1,31 @@
+How to generate a SSH key********
+******************** open git bash or git bash cmd and follow the below commands:
+
+$  ssh-keygen -t rsa -b 4096 -C "kirankale08051997@gmail.com" -----> add here your github email add, This will Generate public/private rsa key pair.
+
+- "Enter a file in which to save the key otherwise " press Enter. This accepts the default file location.
+
+-  Enter passphrase ---> act as a password for you
+
+$  eval $(ssh-agent -s) ----->To Ensure that ssh agent is running type command
+
+$  ssh-add ~/.ssh/id_rsa  ----> Add your SSH private key to the ssh-agent.
+
+-  Now you have to add public SSH key to your GitHub account
+
+$  clip < ~/.ssh/id_rsa.pub  ----> this command will copy your public key
+
+-  Now go to your github account-->profile icon--->settings---->SSH and GPG key----->new SSH-key
+
+-  give a title any thing you like then paste your key there 
+-  then click on "add ssh key" then it will ask for one time password confirm password,  so we have added key successfully
+
+ ****************** Till now whatever I have done you have to do only once for your system
+
+1. create repo in github
+2. open gitbash or gitbash cmd and type cd <Folder path where local code is>
+$  git init   ---> initialize git 
+$  git add .   ---> Then it will add all files in folder
+$  git commit -m "message"  ----> it will commit all the changes locally
+$  git remote add origin <Remore git repo path>   -----> for git repo path : git hub repo----> code----> ssh(copy that path)
+$  now we are ready to push our code enter commad  $ git push origin master
